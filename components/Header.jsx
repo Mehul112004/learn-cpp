@@ -6,18 +6,19 @@ import { Image } from "expo-image";
 import { MaterialIcons } from "@expo/vector-icons";
 import { hp, wp } from "../helpers/common";
 import { theme } from "../constants/theme";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const Header = () => {
   const { colorScheme, toggleColorScheme } = useColorScheme();
   const [isFlase, setIsFalse] = useState(true);
   return (
-    <View
+    <SafeAreaView
       style={{
         backgroundColor: colorScheme == "dark" ? "#1A1A1A" : "white",
       }}
-      className="px-6 py-4 flex-row justify-between items-center"
+      className="px-5 py-1 flex-row justify-between items-center"
     >
-      <StatusBar style={`${colorScheme == "dark" ? "light" : "dark"}`} />
+      {/* <StatusBar style={`${colorScheme == "dark" ? "light" : "dark"}`} /> */}
       <Image
         style={{
           width: wp(15),
@@ -39,7 +40,7 @@ const Header = () => {
         </Pressable>
           <Text className="dark:text-white font-thin">{colorScheme=='dark'?"Dark Mode":"Light Mode"}</Text>
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 
