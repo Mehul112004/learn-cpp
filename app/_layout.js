@@ -1,21 +1,19 @@
 import React from "react";
 import { FontAwesome6 } from "@expo/vector-icons";
-import { Tabs, usePathname } from "expo-router";
+import { Tabs } from "expo-router";
 import { theme } from "../constants/theme";
 import { hp, wp } from "../helpers/common";
 import { useColorScheme } from "nativewind";
 import { StatusBar } from "expo-status-bar";
-import { SafeAreaView } from "react-native-safe-area-context";
 import Header from "../components/Header";
 
 const _layout = () => {
-  const { colorScheme, toggleColorScheme } = useColorScheme();
+  const { colorScheme } = useColorScheme();
   return (
     <>
     
-    <StatusBar style={`${colorScheme == "dark" ? "light" : "dark"}`} />
+    {/* <StatusBar style={`${colorScheme == "dark" ? "light" : "dark"}`} /> */}
       <Header />
-      {/* <SafeAreaView className={`flex-1`}> */}
       <Tabs
         screenOptions={{
           tabBarStyle: {
@@ -24,8 +22,7 @@ const _layout = () => {
             position: "absolute",
             borderRadius: theme.radius.full,
             width: wp(85),
-            justifyContent: "center",
-            alignItems: "center",
+            alignSelf:'flex-end',
             paddingBottom: 5,
             height: hp(8),
             marginLeft: (wp(100) - wp(85)) / 2,
@@ -50,7 +47,6 @@ const _layout = () => {
             tabBarItemStyle: {
               borderRightColor: theme.colors.white,
               borderRightWidth: 0.5,
-              // backgroundColor:'red',
               flex: 1,
               height: hp(8),
               alignItems: "center",
@@ -76,7 +72,6 @@ const _layout = () => {
           }}
         />
       </Tabs>
-      {/* </SafeAreaView> */}
     </>
   );
 };

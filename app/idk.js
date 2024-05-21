@@ -4,7 +4,7 @@ import { StatusBar } from "expo-status-bar";
 import { useColorScheme } from "nativewind";
 
 const idk = () => {
-  const { colorScheme, toggleColorScheme } = useColorScheme();
+  const { colorScheme } = useColorScheme();
   return (
     <View
       className=""
